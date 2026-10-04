@@ -1,0 +1,622 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: #0b0c10;
+    color: #f1f5f9;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Custom sleek scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0c10;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232738;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #38405e;
+  }
+}
+
+/* Glassmorphism and specialized utilities */
+.glass-panel {
+  background: rgba(18, 20, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Bolder, clearer outline text for hero */
+.text-outline-hero {
+  color: rgba(255, 255, 255, 0.06);
+  -webkit-text-stroke: 2.5px rgba(255, 255, 255, 0.75);
+  text-stroke: 2.5px rgba(255, 255, 255, 0.75);
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+}
+
+.text-outline-hero:hover {
+  -webkit-text-stroke: 2.8px rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.12);
+}
+
+/* Marquee infinite scroll */
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-outline {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite 28s linear infinite;
+}
+
+.animate-marquee-outline:hover {
+  animation-play-state: paused;
+}
+
+/* Hero vertical scroll indicator beam */
+@keyframes scrollBeamDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(280%);
+    opacity: 0;
+  }
+}
+
+.animate-scroll-beam {
+  animation: scrollBeamDown 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+/* About trait card slide-to-right exit animation */
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(130%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+.animate-slide-out-right {
+  animation: slideOutRight 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* LIGHT MODE COMPREHENSIVE STYLING */
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+html.light section,
+html.light footer,
+html.light main {
+  background-color: #f8fafc !important;
+}
+
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .border-white\/\[0\.06\],
+html.light .border-white\/\[0\.08\],
+html.light .border-white\/10,
+html.light .border-white\/15,
+html.light .border-white\/20,
+html.light .border-white\/25 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light .bg-white\/\[0\.02\],
+html.light .bg-white\/\[0\.03\],
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.05\],
+html.light .bg-white\/\[0\.06\] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .bg-\[\#12141c\]\/80,
+html.light .bg-\[\#13151f\]\/80,
+html.light .bg-\[\#141620\],
+html.light .bg-\[\#161824\],
+html.light .bg-\[\#181a24\],
+html.light .bg-\[\#181a26\],
+html.light .bg-\[\#1a1d2b\],
+html.light .bg-\[\#1d202d\] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light .text-outline-hero {
+  color: rgba(0, 0, 0, 0.04);
+  -webkit-text-stroke: 2.2px rgba(0, 0, 0, 0.85);
+  text-stroke: 2.2px rgba(0, 0, 0, 0.85);
+  filter: none;
+}
+
+html.light svg path[stroke*="rgba(255,255,255"] {
+  stroke: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Logo letter A in light mode is always white on black background */
+html.light #navbar-logo-letter {
+  color: #ffffff !important;
+}
+
+/* Floating back-to-top button in light mode: white circular background with black arrow */
+html.light #back-to-top-btn {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15) !important;
+}
+
+html.light #back-to-top-btn svg {
+  color: #000000 !important;
+  stroke: #000000 !important;
+}
+
+html.light #back-to-top-btn:hover {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+/* ========================================================
+   LIGHT MODE: 1. PROJECT MODAL CLARITY FIX
+   ======================================================== */
+html.light .project-modal-backdrop {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+html.light .project-modal-dialog {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25) !important;
+  color: #0f172a !important;
+}
+
+html.light .project-modal-glow {
+  opacity: 0.15 !important;
+}
+
+html.light .project-modal-close {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .project-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0f172a !important;
+}
+
+html.light .project-modal-badge {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+html.light .project-modal-title {
+  color: #0f172a !important;
+}
+
+html.light .project-modal-summary {
+  color: #334155 !important;
+}
+
+/* Problem card in modal */
+html.light .project-modal-problem {
+  background-color: #fff1f2 !important;
+  border-color: #fecdd3 !important;
+}
+
+html.light .project-modal-problem h4 {
+  color: #e11d48 !important;
+}
+
+html.light .project-modal-problem p {
+  color: #334155 !important;
+}
+
+/* Solution card in modal */
+html.light .project-modal-solution {
+  background-color: #f0fdf4 !important;
+  border-color: #bbf7d0 !important;
+}
+
+html.light .project-modal-solution h4 {
+  color: #16a34a !important;
+}
+
+html.light .project-modal-solution p {
+  color: #334155 !important;
+}
+
+/* Key technical implementations section */
+html.light .project-modal-section-title {
+  color: #0284c7 !important;
+}
+
+html.light .project-modal-highlight-item {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light .project-modal-highlight-item span {
+  color: #1e293b !important;
+}
+
+html.light .project-modal-highlight-item svg {
+  color: #10b981 !important;
+}
+
+/* Tech stack in modal */
+html.light .project-modal-tech-heading {
+  color: #64748b !important;
+}
+
+html.light .project-modal-tech-tag {
+  background-color: #f0f9ff !important;
+  border-color: #bae6fd !important;
+  color: #0369a1 !important;
+}
+
+/* Impact callout in modal */
+html.light .project-modal-impact {
+  background: linear-gradient(to right, #ecfdf5, #f0fdfa) !important;
+  border-color: #a7f3d0 !important;
+}
+
+html.light .project-modal-impact span {
+  color: #065f46 !important;
+  font-weight: 600 !important;
+}
+
+html.light .project-modal-impact svg {
+  color: #059669 !important;
+}
+
+html.light .project-modal-done-btn {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+html.light .project-modal-done-btn:hover {
+  background-color: #059669 !important;
+}
+
+/* ========================================================
+   2. CAPABILITIES ARCHITECTURAL CHECKLIST PILLS (FONT: WHITE)
+   ======================================================== */
+.capability-arch-pill {
+  background-color: #1e2230 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.capability-arch-pill span {
+  color: #ffffff !important;
+}
+
+.capability-arch-pill svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+html.light .capability-arch-pill {
+  background-color: #232738 !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .capability-arch-pill span {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+html.light .capability-arch-pill svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* ========================================================
+   3. CONTACT: DOWNLOAD RESUME BUTTON (LIGHT MODE: BLACK BG + WHITE FONT)
+   ======================================================== */
+html.light #contact-download-resume-btn {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.light #contact-download-resume-btn span {
+  color: #ffffff !important;
+}
+
+html.light #contact-download-resume-btn:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #1e293b !important;
+}
+
+html.light #contact-download-resume-btn:hover span {
+  color: #ffffff !important;
+}
+
+/* ========================================================
+   4. LIGHT MODE: FLOATING "SEND ME A MESSAGE" MODAL & SHADOW
+   ======================================================== */
+html.light .floating-message-modal {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.14) !important;
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.25), 
+    0 0 0 1px rgba(0, 0, 0, 0.08), 
+    0 10px 25px -5px rgba(0, 0, 0, 0.12) !important;
+}
+
+html.light .floating-message-modal .floating-message-title {
+  color: #0f172a !important;
+}
+
+html.light .floating-message-modal .floating-message-icon-btn {
+  color: #64748b !important;
+}
+
+html.light .floating-message-modal .floating-message-icon-btn:hover {
+  color: #0f172a !important;
+  background-color: #f1f5f9 !important;
+}
+
+html.light .floating-message-modal .border-b {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.light .floating-message-modal .floating-message-label {
+  color: #64748b !important;
+}
+
+html.light .floating-message-modal .floating-message-input {
+  color: #0f172a !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+html.light .floating-message-modal .floating-message-input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light .floating-message-modal .floating-message-input:focus {
+  border-color: #0f172a !important;
+}
+
+/* Submit button in floating message modal in light mode: solid black background with white font */
+html.light #floating-message-submit-btn {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #000000 !important;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.light #floating-message-submit-btn span {
+  color: #ffffff !important;
+}
+
+html.light #floating-message-submit-btn:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+html.light #floating-message-submit-btn:hover span {
+  color: #ffffff !important;
+}
+
+/* ========================================================
+   5. LIGHT MODE: SCROLL DOWN INDICATOR BEAM BECOMES BLACK
+   ======================================================== */
+html.light .hero-scroll-track {
+  background-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+html.light .hero-scroll-beam {
+  background: linear-gradient(to bottom, transparent, #000000, transparent) !important;
+}
+
+html.light .hero-scroll-text {
+  color: #64748b !important;
+}
+
+html.light .hero-scroll-text:hover {
+  color: #000000 !important;
+}
+
+/* ========================================================
+   6. LIGHT MODE: WORK GALLERY & PROJECT CARDS REDESIGN
+   ======================================================== */
+/* Project Card Container in Light Mode: Luminous White Card with Soft Elevation */
+html.light .work-project-card {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .work-project-card:hover {
+  border-color: rgba(6, 182, 212, 0.5) !important;
+  box-shadow: 0 20px 35px -10px rgba(6, 182, 212, 0.16), 0 8px 16px -4px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Card Mockup Frame Border */
+html.light .work-mockup-frame {
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Client Badge on Card */
+html.light .work-card-client {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+/* Card Title */
+html.light .work-card-title {
+  color: #0f172a !important;
+}
+
+html.light .work-project-card:hover .work-card-title {
+  color: #0891b2 !important;
+}
+
+/* Card Summary Description */
+html.light .work-card-summary {
+  color: #475569 !important;
+}
+
+/* Arrow icon */
+html.light .work-card-arrow {
+  color: #64748b !important;
+}
+
+html.light .work-project-card:hover .work-card-arrow {
+  color: #0891b2 !important;
+}
+
+/* Protect the inner mockup dashboards from having their text washed out / turned dark */
+html.light .work-mockup-frame .text-white,
+html.light .work-coverflow-card .text-white {
+  color: #ffffff !important;
+}
+
+html.light .work-mockup-frame .text-slate-100,
+html.light .work-coverflow-card .text-slate-100 {
+  color: #f1f5f9 !important;
+}
+
+html.light .work-mockup-frame .text-slate-200,
+html.light .work-coverflow-card .text-slate-200 {
+  color: #e2e8f0 !important;
+}
+
+html.light .work-mockup-frame .text-slate-300,
+html.light .work-coverflow-card .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+html.light .work-mockup-frame .text-slate-400,
+html.light .work-coverflow-card .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html.light .work-mockup-frame .border-white\/10,
+html.light .work-coverflow-card .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+html.light .work-mockup-frame .bg-white\/\[0\.04\],
+html.light .work-coverflow-card .bg-white\/\[0\.04\] {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Toggle View Button in Work */
+html.light #work-view-mode-toggle {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+}
+
+html.light #work-view-mode-toggle:hover {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+html.light #work-view-mode-toggle span {
+  color: #ffffff !important;
+}
+
+html.light #work-view-mode-toggle svg {
+  color: #ffffff !important;
+}
+
+/* ========================================================
+   7. NAVBAR HIRE ME BUTTON (CUBE BORDER: WHITE IN DARK, BLACK IN LIGHT)
+   ======================================================== */
+#navbar-hire-me {
+  border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+  color: #ffffff !important;
+}
+
+#navbar-hire-me:hover {
+  background-color: #ffffff !important;
+  color: #0c0d12 !important;
+  border-color: #ffffff !important;
+}
+
+html.light #navbar-hire-me {
+  border: 1.5px solid rgba(0, 0, 0, 0.9) !important;
+  color: #000000 !important;
+  background-color: transparent !important;
+}
+
+html.light #navbar-hire-me:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+
+
+
